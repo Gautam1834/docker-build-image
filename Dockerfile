@@ -11,6 +11,7 @@ RUN apt-get -qq update \
         libssl-dev libfreeimage-dev swig \
     && apt-get -y autoremove
 
+
 # Installing mega sdk python binding
 ENV MEGA_SDK_VERSION '3.8.1'
 RUN git clone https://github.com/meganz/sdk.git sdk && cd sdk \
