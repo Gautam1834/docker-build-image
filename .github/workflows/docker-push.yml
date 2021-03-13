@@ -3,7 +3,7 @@ name: Docker
 on:
   push:
     # Publish `master` as Docker `latest` image.
-    branches: [master]
+    branches: [main]
     paths-ignore: 'README.md'
   workflow_dispatch:
 
