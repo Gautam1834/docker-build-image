@@ -4,8 +4,6 @@ on:
   push:
     # Publish `master` as Docker `latest` image.
     branches: [main]
-
-#paths-ignore workflow will not run
     paths-ignore:
     - 'Dockerfile'
     - 'README.md'
