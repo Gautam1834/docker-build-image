@@ -4,8 +4,8 @@ on:
   push:
     # Publish `master` as Docker `latest` image.
     branches: [main]
-    paths-ignore: 'README.md','Dockerfile'
-  workflow_dispatch:
+    paths-ignore: 'README.md'
+    paths-ignore: 'Dockerfile'
 
     # Publish `v1.2.3` tags as releases.
     tags:
