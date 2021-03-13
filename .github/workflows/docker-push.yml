@@ -5,6 +5,7 @@ on:
     # Publish `master` as Docker `latest` image.
     branches: [master]
     paths-ignore: 'README.md'
+  workflow_dispatch:
 
     # Publish `v1.2.3` tags as releases.
     tags:
