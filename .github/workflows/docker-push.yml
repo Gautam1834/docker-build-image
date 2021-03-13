@@ -3,7 +3,7 @@ name: Docker
 on:
   push:
     # Publish `master` as Docker `latest` image.
-    branches: [main]
+    branches: [master]
     paths-ignore: 'Dockerfile'
 
     # Publish `v1.2.3` tags as releases.
