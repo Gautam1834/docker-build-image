@@ -7,7 +7,7 @@ on:
     paths-ignore:
     - 'Dockerfile'
     - 'README.md'
-
+    - '.github/worflows/docker-push.yml'
     # Publish `v1.2.3` tags as releases.
     tags:
       - v*
