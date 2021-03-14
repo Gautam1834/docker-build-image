@@ -26,13 +26,12 @@ jobs:
         name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKERHUB_ID }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Build and push
         uses: docker/build-push-action@v2
+        with:
+          context: .
           push: true
-          tags: brutewoorse/mega-sdk-python:latest
-      -
-        name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
+          tags: user/app:latest
