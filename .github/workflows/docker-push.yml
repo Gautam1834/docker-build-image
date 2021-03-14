@@ -9,6 +9,7 @@ on:
     - 'README.md'
     - '.github/workflows/docker-push.yml'
 
+
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -25,7 +26,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      -
+      -   run: echo ${{ secrets.GITHUB_TOKEN }}
         name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
