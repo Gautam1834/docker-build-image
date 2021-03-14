@@ -48,7 +48,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_ID }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      -   run: echo ${{ secrets.GITHUB_TOKEN }}
+      -   run: echo ${{ secrets.GH_TOKEN }}
         name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
