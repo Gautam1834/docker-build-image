@@ -4,7 +4,10 @@ on:
   push:
     branches:
       - 'main'
-
+    path-ignore:
+    - 'README.md'
+    - 'Dockerfile'
+    - '.github/workflows/docker-push.yml'
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -27,6 +30,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: user/app:latest
+          tags: brutewoorse/mega-sdk-python:latest
           secrets: |
             GIT_AUTH_TOKEN=${{ secrets.GH_TOKEN}}
