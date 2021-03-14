@@ -19,4 +19,4 @@ RUN git clone https://github.com/meganz/sdk.git sdk && cd sdk \
     && ./autogen.sh && ./configure --disable-silent-rules --enable-python --with-sodium --disable-examples \
     && make -j$(nproc --all) \
     && cd bindings/python/ && python3 setup.py bdist_wheel \
-    && cd dist/ && pip3 install --no-cache-dir megasdk-$MEGA_SDK_VERSION-*.whl
+    && cd dist/ && pip3 install --no-cache-dir megasdk-$GIT_BRANCH-*.whl
