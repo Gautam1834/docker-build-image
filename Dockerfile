@@ -13,10 +13,10 @@ RUN apt-get -qq update \
 
 
 # Installing mega sdk python binding
-ENV GIT_BRANCH master
+ENV MEGA_SDK_VERSION '3.8.1'
 RUN git clone https://github.com/meganz/sdk.git sdk && cd sdk \
-    && git checkout v$GIT_BRANCH \
+    && git checkout v$MEGA_SDK_VERSION \
     && ./autogen.sh && ./configure --disable-silent-rules --enable-python --with-sodium --disable-examples \
     && make -j$(nproc --all) \
     && cd bindings/python/ && python3 setup.py bdist_wheel \
-    && cd dist/ && pip3 install --no-cache-dir megasdk-$GIT_BRANCH-*.whl
+    && cd dist/ && pip3 install --no-cache-dir megasdk-$MEGA_SDK_VERSION-*.whl
