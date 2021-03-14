@@ -1,13 +1,21 @@
-name: ci
+name: Docker
 
 on:
   push:
+    # Publish `master` as Docker `latest` image.
     branches:
-      - 'main'
-    paths-ignore:
-    - 'Dockerfile'
-    - 'README.md'
-    - '.github/workflows/docker-push.yml'
+      - main
+
+    # Publish `v1.2.3` tags as releases.
+    tags:
+      - v*
+
+  # Run tests for any PRs.
+  pull_request:
+
+env:
+  # TODO: Change variable to your image's name.
+  IMAGE_NAME: mirrorbotbase
 
 jobs:
   # Run tests.
@@ -26,6 +34,7 @@ jobs:
           else
             docker build . --file Dockerfile
           fi
+
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
   push:
