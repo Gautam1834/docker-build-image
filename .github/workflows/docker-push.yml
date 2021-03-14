@@ -1,4 +1,4 @@
-name: ci
+name: build mega-sdk-python
 
 on:
   push:
