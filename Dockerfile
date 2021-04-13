@@ -10,7 +10,7 @@ RUN set -ex \
         libcrypto++-dev libsqlite3-dev libc-ares-dev \
         libsodium-dev libnautilus-extension-dev \
         libssl-dev libfreeimage-dev swig \
-    && apt-get -y autoremove
+    && apt-get -y autoremove --purge
 
 
 # Installing mega sdk python binding
