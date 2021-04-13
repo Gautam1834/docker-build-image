@@ -2,8 +2,7 @@ FROM python:3-slim-buster
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN set -ex \
-    apt-get -qq update \
+RUN apt-get -qq update \
     && apt-get -qq install -y --no-install-recommends \
         git g++ gcc autoconf automake \
         m4 libtool qt4-qmake make libqt4-dev libcurl4-openssl-dev \
