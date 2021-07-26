@@ -32,5 +32,4 @@ jobs:
         with:
           push: true
           tags: brutewoorse/mega-sdk-python:latest
-          secrets: |
-            GIT_AUTH_TOKEN=${{ secrets.GH_TOKEN}}
+
