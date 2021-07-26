@@ -1,17 +1,24 @@
-FROM ubuntu:latest
 
-ENV DEBIAN_FRONTEND=noninteractive
+FROM ubuntu:20.04
 
-RUN apt-get -qq update \
-    && apt-get -qq install -y --no-install-recommends \
+# Set Environment
+ENV DEBIAN_FRONTEND="noninteractive"
+
+# Installing Dependencies
+RUN apt-get -qq -y update && apt-get -qq -y upgrade && apt-get -qq install -y software-properties-common \
+        && add-apt-repository ppa:rock-core/qt4 \
+        && apt-get -qq install -y tzdata python3 python3-pip \
+        unzip p7zip-full p7zip-rar aria2 wget curl \
+        pv jq ffmpeg locales python3-lxml xz-utils neofetch \
         git g++ gcc autoconf automake \
         m4 libtool qt4-qmake make libqt4-dev libcurl4-openssl-dev \
         libcrypto++-dev libsqlite3-dev libc-ares-dev \
         libsodium-dev libnautilus-extension-dev \
-        libssl-dev libfreeimage-dev swig \
-    && apt-get -y autoremove --purge \
-    && MEGA_SDK_VERSION="3.9.2" \
-    && git clone https://github.com/meganz/sdk.git --depth=1 -b v$MEGA_SDK_VERSION ~/sdk \
+        libssl-dev libfreeimage-dev swig
+
+
+ENV MEGA_SDK_VERSION '3.9.2'
+RUN git clone https://github.com/meganz/sdk.git --depth=1 -b v$MEGA_SDK_VERSION ~/sdk \
     && cd ~/sdk \
     && rm -rf .git \
     && ./autogen.sh \
@@ -20,8 +27,8 @@ RUN apt-get -qq update \
     && cd bindings/python/ \
     && python3 setup.py bdist_wheel \
     && cd dist/ \
-    && pip3 install --no-cache-dir megasdk-$MEGA_SDK_VERSION-*.whl
-
+    && pip3 install --no-cache-dir megasdk-$MEGA_SDK_VERSION-*.whl \
+    && cd ~
 
 RUN apt-get -qq -y purge autoconf automake g++ gcc libtool m4 make software-properties-common swig \
     && rm -rf -- /var/lib/apt/lists/* /var/cache/apt/archives/* /etc/apt/sources.list.d/* /var/tmp/* /tmp/* \
