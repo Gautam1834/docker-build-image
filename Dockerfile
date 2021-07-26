@@ -24,3 +24,8 @@ RUN apt-get -qq update \
     && python3 setup.py bdist_wheel \
     && cd dist/ \
     && pip3 install --no-cache-dir megasdk-$MEGA_SDK_VERSION-*.whl
+
+
+RUN apt-get -qq -y purge autoconf automake g++ gcc libtool m4 make software-properties-common swig \
+    && rm -rf -- /var/lib/apt/lists/* /var/cache/apt/archives/* /etc/apt/sources.list.d/* /var/tmp/* /tmp/* \
+    && apt-get -qq -y update && apt-get -qq -y upgrade && apt-get -qq -y autoremove && apt-get -qq -y autoclean
