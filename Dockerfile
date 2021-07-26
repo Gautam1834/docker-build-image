@@ -1,7 +1,7 @@
 
 FROM ubuntu:20.04
 
-# Set Environment
+
 ENV DEBIAN_FRONTEND="noninteractive"
 
 RUN apt-get -qq update \
