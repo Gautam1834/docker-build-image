@@ -31,5 +31,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: brutewoorse/mega-sdk-python:latest
+          tags: brutewooorse/mega-sdk-python:latest
 
