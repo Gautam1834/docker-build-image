@@ -13,7 +13,7 @@ RUN apt-get -qq update \
 
 
 # Installing mega sdk python binding
-    && MEGA_SDK_VERSION="3.8.6" \
+    && MEGA_SDK_VERSION="3.9.2" \
     && git clone https://github.com/meganz/sdk.git --depth=1 -b v$MEGA_SDK_VERSION ~/sdk \
     && cd ~/sdk \
     && rm -rf .git \
