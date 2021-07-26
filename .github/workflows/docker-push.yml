@@ -3,7 +3,7 @@ name: build mega-sdk-python
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
 
     paths-ignore:
     - 'README.md'
